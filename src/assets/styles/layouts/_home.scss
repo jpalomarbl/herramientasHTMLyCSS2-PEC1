@@ -1,57 +1,80 @@
-* {
-  box-sizing: border-box;
+body {
+  margin: 0;
 }
 
-body {
+.heading {
+  // Typography
+  font-family: $font-family-sans-serif;
+}
+
+.header {
+  // Box model
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  padding: 2rem;
-  font-family: $font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
-}
+  width: 100vw;
+  height: 20vh;
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+  // Visual
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 70%;
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+  &__title {
+    // Box model
+    margin-top: auto;
+    margin-bottom: 0;
 
-  @media (min-width: $mqMinWidth) {
-    max-width: none;
+    // Typography
+    color: $main-font-color;
+
+    // Visual
+    text-shadow: $yellow 1px 0 10px;
+
+    /* Highlighted text inside of the header's title */
+    &--highlight {
+      // Typography
+      font-family: $font-family-highlight;
+      color: $yellow;
+
+      // Visual
+      text-shadow: $main-font-color 1px 0 10px;
+    }
+  }
+
+  &__author {
+    // Box model
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 1vh;
+    margin-inline: .5vw;
+
+    // Typography
+    font-family: $font-family-sans-serif;
+    font-size: .6rem;
   }
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: $uoc-corporate;
-
-  @media (min-width: $mqMinWidth) {
-    font-size: 36px;
-  }
+.main-container {
+  // Box model
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  text-align: center;
+.card {
+  // Box model
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $card-width;
+
+  &--beach {
+    background-color: $yellow;
+  }
 }

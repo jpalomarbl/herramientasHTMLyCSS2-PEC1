@@ -1,26 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <title>UOC Boilerplate</title>
+    <link rel="stylesheet" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <title>Tenerife</title>
   </head>
-  <body>
-    <div class="uoc-container">
-      <picture>
-        <source srcset="./assets/images/logo.png?as=webp&width=350" type="image/webp" />
-        <img src="./assets/images/logo.png?width=350" alt="Universitat Oberta de Catalunya" class="uoc-logo" />
-      </picture>
-      <h1 class="uoc-title">Hello, UOC! <i class="fas fa-university"></i></h1>
-      <p>
-        This is a starter template for the Advanced HTML and CSS Tools courses
-        from the Master's Program in Multimedia Applications and the Master's
-        Program in Web App and Website Development at the Universitat Oberta de
-        Catalunya.
-      </p>
-    </div>
+  <body class="body">
+    <include src="./views/header.html"></include>
+    <main class="main-container">
+        <section class="card card--beach">
+            <div class="card__color-rectangle--beach">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <h2 class="heading">La Tejita Beach</h2>
+            </div>
+
+            <small class="card__author">Picture by Adam Krypel.</small>
+        </section>
+
+        <section class="card card--vulcano">
+            <div class="card__color-rectangle--vulcano">
+                <i class="fa-solid fa-volcano"></i>
+                <h2 class="heading">Father Teide</h2>
+            </div>
+        </section>
+
+        <section class="card card--city">
+            <div class="card__color-rectangle--city">
+                <i class="fa-solid fa-landmark card__icon"></i>
+                <h2 class="heading card__title">La Laguna Historic City</h2>
+            </div>
+        </section>
+    </main>
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
   </body>

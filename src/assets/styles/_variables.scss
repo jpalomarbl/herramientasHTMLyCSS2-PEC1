@@ -1,12 +1,14 @@
 @use "sass:color";
 
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+
+$font-family-highlight: "Kablammo", system-ui;
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol";
-$font-family-serif: "Georgia", "Times New Roman", serif;
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
-$uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+$yellow: #ffce47;
+$blue: #55DDE0;
+$main-font-color: #462521;
 
-$mqMinWidth: 420px;
+$card-width: 100vw / 3;
