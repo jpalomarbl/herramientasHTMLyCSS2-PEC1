@@ -5,35 +5,69 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <link rel="icon" href="./assets/images/favicon.svg">
     <title>Tenerife</title>
   </head>
   <body class="body">
     <include src="./views/header.html"></include>
     <main class="main-container">
         <section class="card card--beach">
-            <div class="card__color-rectangle--beach">
-                <i class="fa-solid fa-umbrella-beach"></i>
-                <h2 class="heading">La Tejita Beach</h2>
-            </div>
+            <a class="card__link" href="https://granadillaturismo.es/playa/la-tejita/?lang=en" target=”_blank” >
+                <div class="card__color-rectangle color-rectangle--beach">
+                    <i class="fa-solid fa-umbrella-beach card__icon"></i>
+                    <h2 class="heading card__title">Abades Town and Beach</h2>
 
-            <small class="card__author">Picture by Adam Krypel.</small>
+                    <i class="fa-solid fa-angle-down card__down-arrow"></i>
+                </div>
+
+                <div class="card__overlay">
+                    <p class="card__info">
+                        Discover the hidden gem of Abades, Tenerife! This tranquil coastal village offers crystal-clear waters, golden sands, and stunning views. Perfect for sunbathing, snorkeling, or simply relaxing, Abades is a peaceful escape from crowded spots. Explore local cuisine, scenic landscapes, and the charm of an authentic Canarian village.
+                    </p>
+
+                    <small class="attribution card__author">Picture by Ayto. Granadilla de Abona.</small>
+                </div>
+            </a>
         </section>
 
         <section class="card card--vulcano">
-            <div class="card__color-rectangle--vulcano">
-                <i class="fa-solid fa-volcano"></i>
-                <h2 class="heading">Father Teide</h2>
-            </div>
+            <a class="card__link" href="https://www.miteco.gob.es/en/parques-nacionales-oapn/red-parques-nacionales/parques-nacionales/teide.html" target=”_blank”>
+                <div class="card__color-rectangle color-rectangle--vulcano">
+                    <i class="fa-solid fa-volcano card__icon card__icon--contrast"></i>
+                    <h2 class="heading card__title card__title--contrast">Father Teide</h2>
+
+                    <i class="fa-solid fa-angle-down card__down-arrow card__down-arrow--contrast"></i>
+                </div>
+
+                <div class="card__overlay">
+                    <p class="card__info">
+                        Explore the awe-inspiring Teide National Park, home to Spain’s highest peak and a UNESCO World Heritage Site. Whether hiking its volcanic trails or taking the cable car to the summit, you’ll be captivated by the otherworldly landscapes and breathtaking views. An essential adventure for nature lovers and explorers.
+                    </p>
+
+                    <small class="attribution card__author">Picture by Marek Piwnicki.</small>
+                </div>
+            </a>
         </section>
 
         <section class="card card--city">
-            <div class="card__color-rectangle--city">
-                <i class="fa-solid fa-landmark card__icon"></i>
-                <h2 class="heading card__title">La Laguna Historic City</h2>
-            </div>
+            <a class="card__link" href="https://whc.unesco.org/en/list/929/" target=”_blank”>
+                <div class="card__color-rectangle color-rectangle--city">
+                    <i class="fa-solid fa-landmark card__icon"></i>
+                    <h2 class="heading card__title">La Laguna Historic City</h2>
+
+                    <i class="fa-solid fa-angle-down card__down-arrow"></i>
+                </div>
+
+                <div class="card__overlay">
+                    <p class="card__info">
+                        Step back in time in San Cristóbal de La Laguna, a UNESCO World Heritage city rich in history and colonial architecture. Wander through its charming streets, admire beautifully preserved churches and palaces, and experience the vibrant culture of this picturesque town. A must-see gem of Tenerife.
+                    </p>
+
+                    <small class="attribution card__author">Picture by Magic K.</small>
+                </div>
+            </a>
         </section>
     </main>
-    <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
   </body>
 </html>
