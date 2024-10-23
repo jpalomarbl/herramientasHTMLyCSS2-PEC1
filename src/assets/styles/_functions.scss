@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'tablet': 809px,
+  'desktop': 1919px,
+);
+
+/// Return a media query for a breakpoint based on max-width.
+/// @param {string} $breakpoint1 - The max breakpoint name.
+/// @param {string} $breakpoint2 - The min breakpoint name.
+/// @return {string} - The media query.
+/// @throws {error} - If any of the breakpoints don't exist.
+@mixin addResponsive(
+  $breakpoint1,
+  $breakpoint2: 0px
+) {
+  @if not(map.has-key($breakpoints, $breakpoint1)) {
+    @error 'Invalid breakpoint: #{$breakpoint1}.';
+  } @else if $breakpoint2 == 0px {
+    $breakpoint1: map.get($breakpoints, $breakpoint1);
+
+    @media (max-width: $breakpoint1) {
+      @content;
+    }
+  } @else if map.has-key($breakpoints, $breakpoint2) {
+    $breakpoint1: map.get($breakpoints, $breakpoint1);
+    $breakpoint2: map.get($breakpoints, $breakpoint2);
+
+    @media (min-width: $breakpoint2) and (max-width: $breakpoint1) {
+      @content;
+    }
+  } @else {
+    @error 'Invalid breakpoint: #{$breakpoint2}.';
+  }
+}

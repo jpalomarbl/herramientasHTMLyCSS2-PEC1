@@ -35,6 +35,15 @@ body {
 
     text-shadow: $blue 1px 0 10px;
 
+    // If width <= tablet
+    @include addResponsive('tablet') {
+      margin-inline: 5vw;
+
+      font-size: 2rem;
+
+      text-align: center;
+    }
+
     /* Highlighted text inside of the header's title */
     &--highlight {
       font-family: $font-family-highlight;
@@ -52,6 +61,11 @@ body {
     margin-inline: .5vw;
 
     color: $blue;
+
+    // If width <= tablet
+    @include addResponsive('tablet') {
+      margin-inline: 3vw;
+    }
   }
 }
 
@@ -59,6 +73,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  // If width <= desktop
+  @include addResponsive('desktop') {
+    flex-direction: column;
+  }
 }
 
 /* Every card holds info about touristic place */
@@ -73,15 +92,17 @@ body {
   width: $card-width;
   height: 80vh;
 
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__link {
-    text-decoration: none;
-    color: inherit;
+  // If width <= desktop
+  @include addResponsive('desktop') {
+    width: 100%;
+    height: $card-height;
   }
 
-  /* This div covers background and slides down when hovered */
+  /* This div uncovers background and slides down when hovered */
   &__color-rectangle {
     position: absolute;
     top: 0;
@@ -98,6 +119,29 @@ body {
     transition-property: height;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
+
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      flex-direction: row;
+
+      transition-property: width;
+    }
+
+    /* Every card color div has a different color*/
+    &--beach { background-color: $yellow; }
+    &--vulcano { background-color: $brown; }
+    &--city { background-color: $blue; }
+  }
+
+  &__title-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      margin-inline: auto;
+    }
   }
 
   &__title,
@@ -118,13 +162,36 @@ body {
   &__icon {
     margin-top: 5%;
 
-    font-size: 2.5vw;
+    font-size: 2.5rem;
+
+    // If width <= tablet
+    @include addResponsive('tablet') {
+      font-size: 1.5rem;
+    }
+
+    // If tablet < width <= desktop
+    @include addResponsive('desktop', 'tablet') {
+      font-size: 2rem;
+    }
   }
 
   &__title {
     margin-bottom: 5%;
+    margin-inline: 10%;
 
     font-size: 2rem;
+
+    text-align: center;
+
+    // If width <= tablet
+    @include addResponsive('tablet') {
+      font-size: 1.2rem;
+    }
+
+    // If tablet < width <= desktop
+    @include addResponsive('desktop', 'tablet') {
+      font-size: 1.6rem;
+    }
   }
 
   &__down-arrow {
@@ -133,25 +200,27 @@ body {
     animation-name: arrow-down-bounce;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-  }
 
-  /* Every card color div has a different color*/
-  .color-rectangle--beach { background-color: $yellow; }
-  .color-rectangle--vulcano { background-color: $brown; }
-  .color-rectangle--city { background-color: $blue; }
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      font-size: 1.2rem;
+
+      margin-right: 2vw;
+
+      animation-name: arrow-right-bounce;
+    }
+  }
 
   /* Every card has a different background image */
   &--beach {
     background-image: url(../images/beach.png);
-    background-position-y: 200%;
   }
   &--vulcano {
     background-image: url(../images/vulcano.jpg);
-    background-position: center;
+
   }
   &--city {
     background-image: url(../images/city.jpg);
-    background-position: center;
   }
 
   &__overlay {
@@ -163,15 +232,75 @@ body {
     max-height: 40%;
 
     padding-block: 10vh;
-    // padding-bottom: 5vh;
     padding-inline: 3vw;
 
     background: linear-gradient(to top, rgba(70 37 33 / 1), rgba(70 37 33 / 0));
+
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      // justify-content: flex-end;
+    }
   }
 
   &__info {
     text-align: justify;
     color: $blue;
+
+    // If width <= tablet
+    @include addResponsive('tablet') {
+      font-size: .7rem;
+    }
+
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      width: 60%;
+
+      padding-inline: 5%;
+    }
+  }
+
+  &__author {
+    // If width <= desktop
+    @include addResponsive('desktop') {
+      padding-inline: 5%;
+    }
+  }
+
+  // Card is active when clicked/tapped
+  &--active {
+    .card__color-rectangle {
+      // If width <= desktop
+      @include addResponsive('desktop') {
+        width: 30%;
+      }
+    }
+
+    .card__icon {
+      // If width <= tablet
+      @include addResponsive('tablet') {
+        font-size: 1.2rem;
+      }
+
+      // If tablet < width <= desktop
+      @include addResponsive('desktop', 'tablet') {
+        font-size: 1.8rem;
+      }
+    }
+
+    .card__title {
+      // If width <= tablet
+      @include addResponsive('tablet') {
+        font-size: 1rem;
+      }
+
+      // If tablet < width <= desktop
+      @include addResponsive('desktop', 'tablet') {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   &:hover {
@@ -188,6 +317,7 @@ body {
   }
 }
 
+// Animations for section arrow
 @keyframes arrow-down-bounce {
   0% {
     transform: translateY(0%);
@@ -202,3 +332,16 @@ body {
   }
 }
 
+@keyframes arrow-right-bounce {
+  0% {
+    transform: translateX(0%) rotate(-90deg);
+  }
+
+  50% {
+    transform: translateX(-20%) rotate(-90deg);
+  }
+
+  100% {
+    transform: translateX(0%) rotate(-90deg);
+  }
+}

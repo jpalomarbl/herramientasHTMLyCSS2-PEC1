@@ -10,7 +10,14 @@
  * Write any other JavaScript below
  */
 
-+( function() {
-  const university = "UOC";
-  console.log(`Hello, ${university}!`);
-} )();
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    if (card.classList.contains('card--active')) {
+      card.classList.remove('card--active');
+    } else {
+      card.classList.add('card--active');
+    }
+  });
+});
