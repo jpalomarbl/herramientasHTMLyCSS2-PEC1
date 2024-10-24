@@ -1,4 +1,5 @@
 @use "sass:color";
+@use 'sass:map';
 
 body {
   margin: 0;
@@ -20,6 +21,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 20vh;
+  z-index: 5;
 
   background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
@@ -107,7 +109,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 5;
 
     display: flex;
     flex-direction: column;
@@ -127,7 +129,7 @@ body {
       transition-property: width;
     }
 
-    /* Every card color div has a different color*/
+    /* Every card color div has a different color */
     &--beach { background-color: $yellow; }
     &--vulcano { background-color: $brown; }
     &--city { background-color: $blue; }
@@ -303,15 +305,17 @@ body {
     }
   }
 
-  &:hover {
-    .card__color-rectangle { height: 30%; }
-    .card__icon { font-size: 2.2rem; }
-    .card__title {
-      font-size: 1.8rem;
-      color: color.adjust($main-font-color, $lightness: 25%);
+  @media screen and (min-width: 1919px) {
+    &:hover {
+      .card__color-rectangle { height: 30%; }
+      .card__icon { font-size: 2.2rem; }
+      .card__title {
+        font-size: 1.8rem;
+        color: color.adjust($main-font-color, $lightness: 25%);
 
-      &--contrast {
-        color: color.adjust($yellow, $lightness: 25%);
+        &--contrast {
+          color: color.adjust($yellow, $lightness: 25%);
+        }
       }
     }
   }
